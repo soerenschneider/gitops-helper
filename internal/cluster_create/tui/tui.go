@@ -26,7 +26,7 @@ type UserData struct {
 
 func (u *UserData) Validate() error {
 	if u.ClusterName == "" {
-		return errors.New("empty clustername")
+		u.ClusterName = internal.DefaultClusterName
 	}
 
 	if u.GitOpsTool == "" {
@@ -195,7 +195,7 @@ func RunWizard(components []string) (UserData, error) {
 		components:     map[string]struct{}{},
 		gitopsList:     list.New(gitopsTools, list.NewDefaultDelegate(), 70, 20),
 	}
-	m.clusterName.Placeholder = "default"
+	m.clusterName.Placeholder = internal.DefaultClusterName
 	m.clusterName.Focus()
 	m.componentsList.Title = "Pick components to install"
 	m.gitopsList.Title = "Which GitOps tool to use?"
