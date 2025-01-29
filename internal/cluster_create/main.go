@@ -28,6 +28,10 @@ func CreateCluster() error {
 		return err
 	}
 
+	if err := choices.Validate(); err != nil {
+		return fmt.Errorf("incomplete choices: %w", err)
+	}
+
 	if err := build(choices); err != nil {
 		return fmt.Errorf("could not build cluster %q: %w", choices.ClusterName, err)
 	}

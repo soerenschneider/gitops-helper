@@ -1,6 +1,7 @@
 package tui
 
 import (
+	"errors"
 	"fmt"
 	"gitops-helper/internal"
 	"io"
@@ -21,6 +22,18 @@ type UserData struct {
 	ClusterName string
 	Components  []string
 	GitOpsTool  string
+}
+
+func (u *UserData) Validate() error {
+	if u.ClusterName == "" {
+		return errors.New("empty clustername")
+	}
+
+	if u.GitOpsTool == "" {
+		return errors.New("no gitops tool selected")
+	}
+
+	return nil
 }
 
 var docStyle = lipgloss.NewStyle().Margin(3, 4)
@@ -88,6 +101,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case tea.KeyMsg:
 			if msg.String() == "enter" {
 				m.screen = 1
+			}
+			if msg.String() == "q" {
+				return m, tea.Quit
 			}
 		}
 		return m, cmd
