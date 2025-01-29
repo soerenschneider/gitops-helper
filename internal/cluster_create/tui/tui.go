@@ -196,7 +196,7 @@ func RunWizard(components []string) (UserData, error) {
 	converted := res.(model)
 
 	selectedComponents := make([]string, 0, len(converted.components))
-	for component, _ := range converted.components {
+	for component := range converted.components {
 		selectedComponents = append(selectedComponents, component)
 	}
 	return UserData{
