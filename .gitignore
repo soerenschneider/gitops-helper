@@ -1,0 +1,11 @@
+/.idea
+/*.iml
+/gitops-helper
+/builds
+/coverage.*
+
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
