@@ -1,8 +1,8 @@
 package internal
 
 const (
-	ComponentsDir = "apps"
-	ClustersDir   = "clusters"
+	ComponentsDir = "components"
+	ClustersDir   = "management-clusters"
 
 	DefaultClusterName = "default"
 
