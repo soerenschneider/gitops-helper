@@ -149,7 +149,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 func (m model) View() string {
 	switch m.screen {
 	case 0:
-		return fmt.Sprintf("Step 1: Enter Cluster Name\n\n%s\n\n(press Enter to confirm)\n", m.clusterName.View())
+		return fmt.Sprintf("Step 1: Enter a name for the new management cluster\n\n%s\n\n(press Enter to confirm, q to quit)\n", m.clusterName.View())
 	case 1:
 		return fmt.Sprintf("Step 2: Select Components\n\n%s\n\n(press Enter to confirm)\n", m.componentsList.View())
 	case 2:
