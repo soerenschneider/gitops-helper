@@ -8,7 +8,7 @@ import (
 
 // createClusterCmd represents the createCluster command
 var createClusterCmd = &cobra.Command{
-	Use:   "createCluster",
+	Use:   "managed-cluster",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -23,5 +23,5 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(createClusterCmd)
+	createCmd.AddCommand(createClusterCmd)
 }
